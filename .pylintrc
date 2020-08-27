@@ -1,0 +1,29 @@
+[MASTER]
+ignore= apps.py,migrations
+load-plugins= pylint_django
+
+[DISABLE]
+disable = R0901, C0114, C0115, W0511, C0116, C0415
+# R0901 too-many-ancestors
+# C0114 missing-module-docstring
+# C0115 missing-class-docstring
+# W0511 Todo warning
+# C0116 Missing function or method docstring
+# C0415  Import outside toplevel
+
+[FORMAT]
+# Maximum number of characters on a single line.
+max-line-length=119
+max-returns=10
+
+[DESIGN]
+# Maximum number of locals for function / method body
+max-locals=20
+
+# ignoring arguments named args and kwargs
+ignored-argument-names=arg|args|kwargs
+
+
+[SIMILARITIES]
+# Do not Ignore comments when computing similarities.
+ignore-comments=no
