@@ -27,6 +27,7 @@ BUILT_IN_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
+    'django_extensions',
     'rest_framework'
 ]
 
@@ -126,7 +127,7 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',
     ),
-    'EXCEPTION_HANDLER': 'project.commons.exception_handler.handle',
+    # 'EXCEPTION_HANDLER': 'project.commons.exception_handler.handle',
 }
 
 LOGIN_URL = 'rest_framework:login'
