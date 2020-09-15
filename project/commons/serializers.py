@@ -4,7 +4,7 @@ from django.utils.functional import cached_property
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
 
-from levelup.commons.models import CuserModel
+from project.commons.models import CuserModel
 
 
 class DynamicFieldsModelSerializer(ModelSerializer):
@@ -44,12 +44,6 @@ class DynamicFieldsModelSerializer(ModelSerializer):
 
     def get_fields(self):
         fields = super().get_fields()
-        #
-        # in future , maybe use UserSerializer here
-        # check if created_by and updated_by is instance of PrimaryKeyRelatedField because,
-        # if someone overrides created_by and updated_by datatypes other than PrimaryKeyRelatedField
-        # we shouldn't touch it
-        #
         has_current_user_model = issubclass(self.Meta.model, CuserModel)
         if has_current_user_model:
             for current_user_field in ['created_by', 'updated_by']:
@@ -62,11 +56,9 @@ class DynamicFieldsModelSerializer(ModelSerializer):
     class Meta:
         model = type("IgnoreThisClassThisIsJustForCodeChecker", (),
                      {}
-                     )  # to make sure , code checker doesnt give warnings
+                     )  # to avoid the warning from code checker
 
 
-# pylint: disable=W0223 # Method 'create' is abstract in class 'BaseSerializer' but is not overridden
-# pylint: disable=W0223 # Method 'update' is abstract in class 'BaseSerializer' but is not overridden
 class DummySerializer(serializers.Serializer):
     # dummy serializer for using when serializer class is needed in viewset but actual serializer is not used
     # for maintaining swagger doc

@@ -28,7 +28,8 @@ BUILT_IN_APPS = [
 
 THIRD_PARTY_APPS = [
     'django_extensions',
-    'rest_framework'
+    'rest_framework',
+    'cuser',
 ]
 
 USER_DEFINED_APPS = [
@@ -48,7 +49,9 @@ BUILT_IN_MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-THIRD_PARTY_MIDDLEWARE = []
+THIRD_PARTY_MIDDLEWARE = [
+    'cuser.middleware.CuserMiddleware',
+]
 USER_DEFINED_MIDDLEWARE = []
 MIDDLEWARE = BUILT_IN_MIDDLEWARE + THIRD_PARTY_MIDDLEWARE + USER_DEFINED_MIDDLEWARE
 
