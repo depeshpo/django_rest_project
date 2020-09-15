@@ -44,7 +44,7 @@ class CuserModel(models.Model):
                 checks.Error(
                     "created_by should be either CurrentUserField or None, currently is %s" %
                     type(created_by),
-                    id='LevelUp1',
+                    id='DjangoRest1',
                     obj=cls
                 )
             )
@@ -57,7 +57,7 @@ class CuserModel(models.Model):
                 checks.Error(
                     "updated_by should be either CurrentUserField or None, currently is %s" %
                     type(updated_by),
-                    id='LevelUp1',
+                    id='DjangoRest1',
                     obj=cls
                 )
             )
